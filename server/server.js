@@ -115,7 +115,7 @@ app.get('/auth/logout', function(req, res) {
 //GET ENDPOINTS
 
 app.get('/womens', function(req, res, next) {
-  db.get_all_shoes(function(err, products) {
+  db.get_all_shoes_main_page(function(err, products) {
     res.status(200).send(products);
   });
 });
@@ -139,7 +139,7 @@ app.get('/womens/sandals', function(req, res, next) {
 });
 
 app.get('/womens/:id', function(req, res, next) {
-  db.get_shoe_by_name(req.params.name, function(err, product) {
+  db.get_shoe_for_product_page(req.params.name, function(err, product) {
     res.status(200).send(product);
   });
 });

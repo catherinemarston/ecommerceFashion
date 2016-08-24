@@ -11,7 +11,41 @@
   <div class="row">
     <a href="/auth/facebook/"><button class="button-primary">Login with Facebook</button></a>
   </div>
+  <!-- <div class="row">
+    <a href="/auth/logout"><button class="button-primary">Logout</button></a>
+  </div> -->
+
+<div>
+  <table class = "table">
+    <tr>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+    <tr ng-repeat = "product in model.productsInCart">
+      <td>
+        {{product.name}}
+      </td>
+      <td>
+        {{product.price}}
+      </td>
+      <td>
+
+      </td>
+
+    </tr>
+
+  <button class = "btn btn-default" ng-click = "model.addQuantity(product)">+</button>
+  <button class = "btn btn-default" ng-click = "model.decreaseQuantity(product)">-</button>
+
+</table>
+</div>
+
   <div class="row">
     <a href="/auth/logout"><button class="button-primary">Logout</button></a>
   </div>
-</div>
+
+
+
+
+down here we will bind with model.products for the cart
