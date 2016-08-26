@@ -6,12 +6,12 @@ angular.module('app')
 
 var module = angular.module('app');
 
-function getCart($http) {
-  return $http.get('/cart')
-  .then(function(response){
-    return response.data;
-  });
-} //acting as the service here
+// function getCart($http) {
+//   return $http.get('/cart')
+//   .then(function(response){
+//     return response.data;
+//   });
+// } //acting as the service here
 
 function getCartcontroller($http) {
   var model = this;
@@ -20,15 +20,26 @@ function getCartcontroller($http) {
     getCart($http).then(function(products){
       model.productsInCart = products;
     })
-  }
+  };
+  model.addQuantity = function(product) {
+    model.quantity += 1;
+  };
+  model.decreaseQuantity = function(product) {
+    if(model.quantity > 1) {
+      model.quantity -= 1;
+    }
+  };
 }
 
 
 
 
 
-module.component('cartComponent'{
+module.component('getCartComponent'{
   controllerAs: 'model',
   controller: getCartcontroller,
   templateUrl: './cart/cart.html',
+  // require: {
+  //    'parent': '^addProductComponent'
+  //  }, --- i don't know if we need the parent component here!
 })

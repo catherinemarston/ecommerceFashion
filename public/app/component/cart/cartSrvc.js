@@ -1,5 +1,5 @@
 angular.module('app')
-  .service('cartSrv', function($http) {
+  .service('cartService', function($http) {
 
     this.getCart = function() {
       return $http({
@@ -9,14 +9,14 @@ angular.module('app')
         return response.data;
       })
     },
-    this.addToCart = function() {
-      return $http({
-        method: 'POST',
-        url: '/cart',
-        data: Product
-      }).then(function(response){
-        return response.data;
-      })
-    }
+    // this.addToCart = function(product) {
+    //   return $http({
+    //     method: 'POST',
+    //     url: '/cart',
+    //     data: product
+    //   }).then(function(response){
+    //     return response.data;
+    //   })
+    // }
 
   });

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- //specific product page for each product -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <div class="specific product container">
+<!-- this will be the large container to the right of image gallery -->
+            <span class="specific-product title">{{product.name}}</span>
+            <!-- product gallery here with image one_shoe, image_twoshoes, -->
+            <div class = "image-gallery-slider">
+{{product.one_shoe}}
+            </div>
+
+            <div class="specific-product info">
+                <span class="specific-product name">{{product.name}}</span>
+                <span class="madeInItaly">Made in Italy</span>
+                <span class = "price">{{product.price}}</span>
+                <span class = "specific-product description">{{product.description}}</span>
+                <button class = "add-to-cart" ng-click="addToCart(product)">ADD TO MY BAG</button>
+            </div>
+
+        </div>
+        <div class = "specific-product details">
+
+        </div>
+        //ng-click = "addToCart(product)" div class = product.description product.price one shoe image two shoe image image description image
+
+    </body>
+</html>

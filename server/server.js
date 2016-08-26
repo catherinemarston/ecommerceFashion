@@ -112,7 +112,7 @@ app.get('/auth/logout', function(req, res) {
   res.redirect('/');
 });
 
-//GET ENDPOINTS
+//GET ENDPOINTS FOR PRODUCTS
 
 app.get('/womens', function(req, res, next) {
   db.get_all_shoes_main_page(function(err, products) {
@@ -137,12 +137,17 @@ app.get('/womens/sandals', function(req, res, next) {
     res.status(200).json(products);
   });
 });
+//get specific womens product for product page
+app.get('/womens/:id', cartController.getOneProduct);
 
-app.get('/womens/:id', function(req, res, next) {
-  db.get_shoe_for_product_page(req.params.name, function(err, product) {
-    res.status(200).send(product);
-  });
-});
+app.get('/cart', cartController.getCart);
+// app.get('/womens/:id', function(req, res, next) {
+//   db.get_shoe_for_product_page(req.params.name, function(err, product) {
+//     res.status(200).send(product);
+//   });
+// });
+//POST ENDPOINTS FOR CART
+app.post('/cart', cartController.addProductToCart);
 
 //admin STUFF
 app.post('/admin/products', adminController.addProduct);

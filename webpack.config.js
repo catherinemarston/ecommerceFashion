@@ -25,7 +25,12 @@ var webpackConfig = {
         }, {
             test: /\.scss$/,
             loader: extractCSS.extract(['css', 'sass'])
-        }, ]
+          },
+        ]}
+        // }, { test: /\.scss$/, loaders: ["style", "css?sourceMap", "sass?sourceMap"]},
+        //     devtool: 'source-map'
+        // }
+
     }
 };
 export.modules = webpackConfig;
