@@ -1,7 +1,7 @@
 INSERT INTO Products (name, description, type, price) VALUES
 ('Felize', 'Our beloved driving moc gets a textured twist thanks to soft-to-the-touch tumbled leather. Try it with palazzo pants or culottes for a look that''s adventurous yet effortless', 'Moccasins', 129);
 
-INSERT INTO Productsp(name, description, type, price) VALUES ('Avallo', 'We gave the timeless Chelsea boot a jolt of right-now cool with a hint of unexpected tonal shine and other innovative treatments.', 'Flats', 298);
+INSERT INTO Products(name, description, type, price) VALUES ('Avallo', 'We gave the timeless Chelsea boot a jolt of right-now cool with a hint of unexpected tonal shine and other innovative treatments.', 'Flats', 298);
 
 INSERT INTO Products(name, description, type, price) VALUES ('Stellato', 'In rich tumbled leather and with distinctive hand stitching, our signature loafer. And no wonder: It''s handcrafted in a small, female-owned factory that specializes in complicated flats.', 'Flats', 198);
 

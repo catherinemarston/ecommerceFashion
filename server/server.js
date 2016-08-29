@@ -2,13 +2,15 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var massive = require('massive');
-var connString = "postgres://catherinemarston@localhost/ecommerce-fashion";
-var passport = require('passport'),
-var LocalStrategy = require('passport-local').Strategy,
-var FacebookStrategy = require('passport-facebook').Strategy,
-var config = require('./config.js'),
-var session = require('express-session'),
+var connString = "postgres://catherinemarston@localhost/ecommerce";
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+var config = require('./config.js');
+var session = require('express-session');
+
 var adminController = require('./controllers/adminController');
+var cartController = require('./controllers/cartController');
 
 //initate express app
 var app = module.exports = express();
@@ -29,7 +31,7 @@ var databaseObject = massive.connectSync({
 })
 
 app.set('db', databaseObject);
-const db = app.get('db');
+var db = app.get('db');
 //initiate express app
 
 //PASSPORT FACEBOOK STUFF
@@ -62,7 +64,7 @@ passport.use(new FacebookStrategy({
       user = user[0];
       if (!user) {
         console.log('CREATING USER');
-        db.createUserFacebook([profile.displayName, profile.id], function(err, user) { //createsNewUser
+        db.createUserFacebook({username: profile.displayName, facebook_id: profile.id}, function(err, user) { //createsNewUser
           console.log('USER CREATED', user);
           return cb(err, user);
         })
@@ -115,7 +117,7 @@ app.get('/auth/logout', function(req, res) {
 //GET ENDPOINTS FOR PRODUCTS
 
 app.get('/womens', function(req, res, next) {
-  db.get_all_shoes_main_page(function(err, products) {
+  db.get_all_shoes(function(err, products) {
     res.status(200).send(products);
   });
 });
@@ -146,10 +148,19 @@ app.get('/cart', cartController.getCart);
 //     res.status(200).send(product);
 //   });
 // });
+app.get('/cart/total', cartController.getTotalPrice);
 //POST ENDPOINTS FOR CART
+
 app.post('/cart', cartController.addProductToCart);
 
 //admin STUFF
 app.post('/admin/products', adminController.addProduct);
 
 app.post('/admin/product/images', adminController.addImagesToProduct);
+
+
+//maybe delete an item here and update
+var port = 3000;
+app.listen(port, function() {
+  console.log("Started server on port", port);
+});

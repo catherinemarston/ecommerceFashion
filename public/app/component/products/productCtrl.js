@@ -4,17 +4,17 @@ angular.module('app')
     $scope.getAllProducts = function() {
       productSrvc.getAllProducts()
         .then(function(response) {
-          $scope.products = response;
+          $scope.allProducts = response;
         });
     },
-    var id = $stateParams.id; //most important part! 
+    var id = $stateParams.id; //most important part!
 
     productSrvc.getSpecificProduct(id).then(function(response){
       $scope.specificProduct = response[0]; //speicifc product will be in html
       console.log($scope.specificProduct);
     })
     //front end will just be ng-repeat with "shoes in products"
-    // $scope.getAllProducts();
+    $scope.getAllProducts();
 
   });
 

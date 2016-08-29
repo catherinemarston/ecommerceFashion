@@ -24,6 +24,8 @@ module.config(function($stateProvider, $urlRouterProvider){
   },
   state('')
 
+  //cart needs to do a resolve for checkuser and then redirect to auth/facebook and then login now needs its own modal
+
 
 
 

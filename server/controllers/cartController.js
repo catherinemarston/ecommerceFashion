@@ -18,5 +18,10 @@ module.exports = {
     db.get_shoe_for_product_page(req.params.id, function (err, product) {
       res.status(200).send(product);
     })
-  }
+  },
+  getTotalPrice: function(req, res, next) {
+     db.get_order_total(req.user.user_id, function(err, total) {
+       res.status(200).send(total);
+     });
+   }
 }
