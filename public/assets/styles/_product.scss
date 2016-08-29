@@ -1,0 +1,39 @@
+.product-body {
+  background-image: url('./images/new_york_skyscrapers.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.product-container{
+  img {
+
+  }
+}
+.product-paragraphy {
+  @include container-column;
+  h1 {
+    font-family: $merriweather;
+    font-weight: regular;
+    font-size: 44px;
+    letter-spacing: 3.18px;
+    order: 1;
+  }
+  .price {
+    font-family: $merriweather;
+    font-size: 25px;
+    letter-spacing: 1.81px;
+  }
+  h2 {
+    @include product-made-in;
+    order: 2;
+  }
+  h3 {
+    @include product-shop-now;
+    order: 4;
+
+  }
+  p {
+    @include product-paragraph;
+    order: 3;
+  }
+}

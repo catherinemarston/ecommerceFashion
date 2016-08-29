@@ -1,0 +1,29 @@
+.home {
+  .flex-container {
+  background-image: url('./images/new_york_skyscraper.png');
+  background-repeat: no-repeat;
+  @include container-center-flex;
+  }
+  .cammeo-styling {
+    align-self: center;
+    @include main-page-box-shadow;
+  }
+  .p-container {
+    @include container-column;
+  }
+  .p-container {
+    title-image {
+      order: 1;
+    }
+    p {
+      order: 2;
+    }
+  }
+  p {
+    @include product-paragraph;
+  }
+  .main-img {
+    @include main-page-box-shadow;
+  }
+
+}
